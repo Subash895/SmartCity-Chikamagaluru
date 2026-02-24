@@ -48,7 +48,8 @@ body {
   outline: none;
 }
 
-.signin-btn {
+.signin-btn,
+.signup-btn {
   width: 100%;
   padding: 12px;
   font-size: 18px;
@@ -57,6 +58,14 @@ body {
   background: #275041;
   color: white;
   cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s ease;
+}
+
+.signin-btn:hover,
+.signup-btn:hover {
+  background: #1f3d33;
+  transform: scale(1.02);
 }
 
 .signin-btn:hover {

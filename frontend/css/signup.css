@@ -61,10 +61,13 @@
   color: white;
   cursor: pointer;
   margin-top: 10px;
+  transition: 0.3s ease;
 }
 
 .signin-btn:hover {
   background: #1f3d33;
+  transform: scale(1.02);
+
 }
 
 /* Bottom Login Link */
