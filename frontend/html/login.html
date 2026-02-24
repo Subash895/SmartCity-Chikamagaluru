@@ -17,48 +17,56 @@
       <h2 class="login-heading">Login</h2>
 
       <div class="input-box">
-        <input type="text" placeholder="Email or Username">
+        <input type="text" id="email" placeholder="Email">
       </div>
 
       <div class="input-box">
-        <input type="password" placeholder="Password">
+        <input type="password" id="password" placeholder="Password">
       </div>
 
-      <button class="signin-btn">Sign in</button>
-      <a href="signup.html">
-        <button class="signup-btn">Create Account</button>
+      <button type="button" class="signin-btn">Sign In</button>
+
+      <!-- Proper Link Button (NO button inside anchor) -->
+      <a href="signup.html" class="signup-btn link-btn">
+        Create Account
       </a>
+
     </div>
 
   </div>
 
 <script>
-document.querySelector(".signin-btn").addEventListener("click", function() {
+document.addEventListener("DOMContentLoaded", function() {
 
-    const email = document.querySelector("input[type='text']").value;
-    const password = document.querySelector("input[type='password']").value;
+    document.querySelector(".signin-btn").addEventListener("click", function() {
 
-    fetch("http://localhost:8080/api/users/login", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            email: email,
-            password: password
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        fetch("http://localhost:8080/api/users/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password
+            })
         })
-    })
-    .then(response => response.text())
-    .then(data => {
-        alert(data);
+        .then(response => response.text())
+        .then(data => {
+            alert(data);
 
-        if(data.includes("Login successful")) {
-            window.location.href = "dashboard.html";
-        }
-    })
-    .catch(error => {
-        console.error("Error:", error);
+            if(data.includes("Login successful")) {
+                window.location.href = "dashboard.html";
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+
     });
+
 });
 </script>
 
