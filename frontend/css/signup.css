@@ -1,3 +1,10 @@
+/* Reset */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Inter, sans-serif;
+}
+
 /* Full Page */
 .login-container {
   width: 100%;
@@ -17,7 +24,7 @@
   margin-bottom: 40px;
 }
 
-/* Main Signin Box */
+/* Main Box */
 .login-box {
   width: 540px;
   background: #EAEAEA;
@@ -48,10 +55,13 @@
   border: 1px solid rgba(0, 0, 0, 0.38);
   outline: none;
   font-family: 'Instrument Serif', serif;
+  box-sizing: border-box;
 }
 
-/* Button */
-.signin-btn {
+/* Buttons (Login + Signup BOTH) */
+.signin-btn,
+.signup-btn {
+  display: block;
   width: 100%;
   padding: 12px;
   font-size: 18px;
@@ -61,13 +71,16 @@
   color: white;
   cursor: pointer;
   margin-top: 10px;
+  text-align: center;
+  text-decoration: none;
   transition: 0.3s ease;
 }
 
-.signin-btn:hover {
+/* Hover effect */
+.signin-btn:hover,
+.signup-btn:hover {
   background: #1f3d33;
   transform: scale(1.02);
-
 }
 
 /* Bottom Login Link */

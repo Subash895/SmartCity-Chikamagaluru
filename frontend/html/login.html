@@ -32,5 +32,35 @@
 
   </div>
 
+<script>
+document.querySelector(".signin-btn").addEventListener("click", function() {
+
+    const email = document.querySelector("input[type='text']").value;
+    const password = document.querySelector("input[type='password']").value;
+
+    fetch("http://localhost:8080/api/users/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            email: email,
+            password: password
+        })
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data);
+
+        if(data.includes("Login successful")) {
+            window.location.href = "dashboard.html";
+        }
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
+});
+</script>
+
 </body>
 </html>
