@@ -1,4 +1,4 @@
-select *    from users;
+select * from users;
 show databases;
 use smart_city;
 

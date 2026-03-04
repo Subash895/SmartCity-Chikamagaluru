@@ -7,78 +7,78 @@
 </head>
 <body>
 
-  <div class="login-container">
+<div class="login-container">
 
-    <h1 class="smartcity-title">Smart City</h1>
+  <h1 class="smartcity-title">Smart City</h1>
 
-    <div class="login-box">
+  <div class="login-box">
 
-      <h2 class="login-heading">Sign Up</h2>
+    <h2 class="login-heading">Sign Up</h2>
 
-      <div class="input-box">
-        <input type="text" id="name" placeholder="Username">
-      </div>
-
-      <div class="input-box">
-        <input type="email" id="email" placeholder="Email">
-      </div>
-
-      <div class="input-box">
-        <input type="password" id="password" placeholder="Password">
-      </div>
-
-      <div class="input-box">
-        <input type="password" id="confirmPassword" placeholder="Confirm Password">
-      </div>
-
-      <button type="button" class="signup-btn">Create Account</button>
-
-      <p class="bottom-link">
-        Already have an account? <a href="login.html">Login</a>
-      </p>
-
+    <div class="input-box">
+      <input type="text" id="name" placeholder="Username">
     </div>
+
+    <div class="input-box">
+      <input type="email" id="email" placeholder="Email">
+    </div>
+
+    <div class="input-box">
+      <input type="password" id="password" placeholder="Password">
+    </div>
+
+    <div class="input-box">
+      <input type="password" id="confirmPassword" placeholder="Confirm Password">
+    </div>
+
+    <button type="button" class="signup-btn">Create Account</button>
+
+    <p class="bottom-link">
+      Already have an account? <a href="login.html">Login</a>
+    </p>
 
   </div>
 
+</div>
+
 <script>
-document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function() {
 
     document.querySelector(".signup-btn").addEventListener("click", function() {
 
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-        const confirmPassword = document.getElementById("confirmPassword").value;
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
 
-        if(password !== confirmPassword){
-            alert("Passwords do not match!");
-            return;
-        }
+      if(password !== confirmPassword){
+        alert("Passwords do not match!");
+        return;
+      }
 
-        fetch("http://localhost:8080/api/users/register", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                name: name,
-                email: email,
-                password: password
-            })
+      fetch("http://localhost:8080/api/users/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          password: password
         })
-        .then(response => response.json())
-        .then(data => {
-            alert("Registration successful!");
-            window.location.href = "login.html";
-        })
-        .catch(error => {
-            console.error("Error:", error);
-        });
+      })
+              .then(response => response.json())
+              .then(data => {
+                alert("Registration successful!");
+                window.location.href = "login.html";
+              })
+              .catch(error => {
+                console.error("Error:", error);
+              });
 
     });
 
-});
+  });
 </script>
 
 </body>
