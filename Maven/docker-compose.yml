@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+
+  mysql:
+    image: mysql:8
+    container_name: smartcity-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: smart_city
+    ports:
+      - "3307:3306"
+    volumes:
+      - "D:/ENGINEERING/8th-Sem/Git/SmartCity-Chikamagaluru/Datastored:/var/lib/mysql"
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  backend:
+#    build: .
+    image: subash895/smartcity-backend:1.0
+    container_name: smartcity-backend
+    restart: always
+    depends_on:
+      - mysql
+    ports:
+      - "8080:8080"
