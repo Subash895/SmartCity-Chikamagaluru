@@ -1,0 +1,8 @@
+com\smartcity\entity\User.class
+com\smartcity\config\SecurityConfig.class
+com\smartcity\entity\Place.class
+com\smartcity\repository\UserRepository.class
+com\smartcity\SmartCityBackendApplication.class
+com\smartcity\repository\PlaceRepository.class
+com\smartcity\controller\PlaceController.class
+com\smartcity\controller\UserController.class

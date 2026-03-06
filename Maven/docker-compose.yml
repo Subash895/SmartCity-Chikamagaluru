@@ -7,16 +7,16 @@ services:
     container_name: smartcity-db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: smart_city
+      MYSQL_ROOT_PASSWORD: Subbu@895
+      MYSQL_DATABASE: smartcity
     ports:
-      - "3307:3306"
+      - "3306:3306"
     volumes:
       - "D:/ENGINEERING/8th-Sem/Git/SmartCity-Chikamagaluru/Datastored:/var/lib/mysql"
       - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
 
   backend:
-#    build: .
+    build: .
     image: subashbr/smartcity-backend
     container_name: smartcity-backend
     restart: always
